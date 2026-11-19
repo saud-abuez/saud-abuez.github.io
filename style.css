@@ -1,71 +1,111 @@
-
-:root{
-  --bg:#f7f4ef;
-  --paper:#fffdf9;
-  --ink:#25231f;
-  --muted:#6f6a61;
-  --accent:#9d3f31;
-  --accent-dark:#773027;
-  --line:#e5ded4;
-  --shadow:0 14px 40px rgba(40,30,20,.08);
-}
+:root{--bg:#fbf8f1;--card:#fff;--ink:#241f1a;--muted:#6d6558;--line:#e8dfcf;--brand:#2e5b4c;--brand-ink:#fff;--accent:#9a6a32;--soft:#f3ece0;--r:14px;--sh:0 1px 2px rgba(60,40,10,.06),0 8px 22px rgba(60,40,10,.06)}
+@media (prefers-color-scheme:dark){:root{--bg:#15130f;--card:#1e1b16;--ink:#f1ebe0;--muted:#b3a994;--line:#332e25;--brand:#7fb8a3;--brand-ink:#10231c;--accent:#d4a45f;--soft:#26221b;--sh:none}}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,"Arial",sans-serif;line-height:1.9}
-a{color:inherit;text-decoration:none}
-.container{width:min(1120px,92%);margin:auto}
-.site-header{position:sticky;top:0;z-index:20;background:rgba(255,253,249,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.logo{font-weight:800;font-size:1.15rem;color:var(--accent)}
-.logo span{display:block;font-size:.68rem;letter-spacing:.18em;color:var(--muted);font-weight:600}
-nav{display:flex;gap:20px;flex-wrap:wrap}
-nav a{font-size:.94rem;color:#49453f}
-nav a:hover,nav a.active{color:var(--accent)}
-.hero{padding:78px 0 60px;background:
- radial-gradient(circle at 10% 10%,rgba(157,63,49,.10),transparent 35%),
- linear-gradient(135deg,#fffdf9,#f2ece4)}
-.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:54px;align-items:center}
-.kicker{color:var(--accent);font-weight:800;letter-spacing:.08em;font-size:.88rem}
-h1,h2,h3{line-height:1.35;margin:0 0 18px}
-h1{font-size:clamp(2.3rem,5vw,4.5rem)}
-h2{font-size:clamp(1.7rem,3vw,2.5rem)}
-h3{font-size:1.25rem}
-.lead{font-size:1.12rem;color:#555047;max-width:720px}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.button{display:inline-block;padding:12px 20px;border-radius:12px;background:var(--accent);color:white;font-weight:800}
-.button:hover{background:var(--accent-dark)}
-.button.secondary{background:transparent;color:var(--accent);border:1px solid var(--accent)}
-.portrait-wrap{background:var(--paper);padding:14px;border:1px solid var(--line);box-shadow:var(--shadow);border-radius:22px;max-width:390px;margin-inline:auto}
-.portrait{display:block;width:100%;border-radius:14px}
-.caption{font-size:.82rem;color:var(--muted);text-align:center;margin:10px 0 0}
-.section{padding:64px 0}
-.section.alt{background:var(--paper);border-block:1px solid var(--line)}
-.section-intro{color:var(--muted);max-width:780px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 6px 20px rgba(40,30,20,.04)}
-.card .meta{color:var(--accent);font-size:.82rem;font-weight:800}
-.card p{color:#625d55}
-.page-head{padding:58px 0 35px}
-.breadcrumb{font-size:.85rem;color:var(--muted);margin-bottom:15px}
-.category-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.category-card{display:flex;justify-content:space-between;gap:20px;align-items:center}
-.page-no{white-space:nowrap;color:var(--accent);font-weight:800}
-.notice{padding:20px 22px;border-right:4px solid var(--accent);background:#fbf7f1;border-radius:10px;color:#554f47}
-.viewer{background:#2d2925;border-radius:18px;padding:12px;box-shadow:var(--shadow)}
-.viewer iframe{width:100%;height:78vh;border:0;border-radius:12px;background:white}
-.prose{max-width:850px}
-.prose p,.prose li{font-size:1.02rem;color:#4e4942}
-.prose h2{margin-top:38px}
-footer{background:#25221f;color:#eee8df;padding:42px 0}
-footer a{color:#eee8df}
-.footer-grid{display:grid;grid-template-columns:1.4fr .8fr .8fr;gap:30px}
-.small{font-size:.85rem;color:#bdb5aa}
-.list{padding-right:20px}
-@media(max-width:800px){
-  .hero-grid,.cards,.category-grid,.footer-grid{grid-template-columns:1fr}
-  .nav{align-items:flex-start;padding:14px 0;flex-direction:column}
-  nav{gap:12px}
-  .hero{padding-top:48px}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.85 "Tajawal","Segoe UI",Tahoma,sans-serif}
+a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+img{max-width:100%;height:auto}
+h1,h2,h3{font-family:"Amiri","Tajawal",serif;line-height:1.5;margin:0 0 .5em}
+h1{font-size:clamp(1.9rem,5vw,2.8rem)}h2{font-size:1.5rem}h3{font-size:1.25rem}
+.wrap{width:min(1100px,100% - 2rem);margin-inline:auto}
+.narrow{width:min(760px,100% - 2rem)}
+.center{text-align:center}.muted{color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.skip{position:absolute;inset-inline-start:.5rem;top:-3rem;background:var(--brand);color:var(--brand-ink);padding:.5rem 1rem;border-radius:8px;z-index:20}
+.skip:focus{top:.5rem}
+/* header */
+.site-header{position:sticky;top:0;z-index:10;background:var(--card);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:62px;flex-wrap:wrap;padding-block:.35rem}
+.brand{font:700 1.6rem "Amiri",serif;color:var(--brand)}.brand:hover{text-decoration:none}
+.site-header nav{display:flex;gap:.25rem;flex-wrap:wrap}
+.site-header nav a{color:var(--ink);padding:.35rem .8rem;border-radius:999px;font-weight:500;font-size:.98rem}
+.site-header nav a:hover{background:var(--soft);text-decoration:none}
+/* hero */
+.hero{background:linear-gradient(180deg,var(--soft),var(--bg));padding:2.5rem 0 1.5rem}
+.hero-grid{display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center}
+.portrait{width:210px;height:210px;object-fit:cover;border-radius:50%;border:5px solid var(--card);box-shadow:var(--sh)}
+.eyebrow{color:var(--accent);font-weight:700;margin:0}
+.poet{font-size:1.25rem;margin:.2rem 0 .6rem}.poet span{color:var(--muted)}
+.lead{font-size:1.1rem;color:var(--muted);max-width:42rem;margin:.3rem 0 1rem}
+.stats{display:flex;gap:.6rem;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.stats li{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.2rem .9rem;font-size:.95rem}
+.stats b{color:var(--brand);font-size:1.1rem}
+/* search */
+.search-box{margin-top:1.2rem}
+.search-box label{display:block;font-weight:700;margin-bottom:.4rem}
+.search-box input{width:100%;font:inherit;padding:.8rem 1rem;border:1.5px solid var(--line);border-radius:var(--r);background:var(--card);color:var(--ink)}
+.results{margin-top:.6rem}
+.results a{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:.6rem .9rem;margin-bottom:.5rem;color:var(--ink)}
+.results a:hover{border-color:var(--brand);text-decoration:none}
+.results small{display:block;color:var(--muted)}
+.results .empty{color:var(--muted);padding:.5rem}
+/* blocks */
+.block{margin-block:2.5rem}
+.h-sec{border-inline-start:5px solid var(--accent);padding-inline-start:.7rem;margin-bottom:1.1rem}
+.grid{display:grid;gap:1rem}
+.sec-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.feat-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.sec-card,.poem-link,.poem-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh)}
+.sec-card{display:flex;flex-direction:column;padding:1.1rem 1.2rem;color:var(--ink);transition:transform .15s,border-color .15s}
+.sec-card:hover,.poem-link:hover{transform:translateY(-2px);border-color:var(--brand);text-decoration:none}
+.sec-card h3{color:var(--brand);margin-bottom:.2rem}
+.sec-card p{margin:.1rem 0}.sec-card .sample{font-family:"Amiri",serif;font-size:1.1rem;margin-top:.5rem}
+.count{margin-top:auto;padding-top:.6rem;font-weight:700;color:var(--accent);font-size:.92rem}
+.poem-link{display:block;padding:1rem 1.2rem;color:var(--ink);transition:transform .15s,border-color .15s}
+.poem-link h2,.poem-link h3{font-size:1.25rem;margin:.2rem 0}
+.poem-link p{margin:0;font-family:"Amiri",serif;font-size:1.1rem;color:var(--muted)}
+.poem-link .more{display:inline-block;margin-top:.5rem;color:var(--brand);font-weight:700;font-size:.95rem}
+.tag{display:inline-block;background:var(--soft);color:var(--accent);border-radius:999px;padding:0 .7rem;font-size:.85rem;font-weight:700}
+.btn{display:inline-block;background:var(--brand);color:var(--brand-ink);padding:.6rem 1.3rem;border-radius:999px;font:700 1rem "Tajawal",sans-serif;border:0;cursor:pointer}
+.btn:hover{text-decoration:none;opacity:.92}
+.btn.ghost{background:transparent;color:var(--brand);border:1.5px solid var(--brand)}
+.about-strip{background:var(--soft);border-radius:var(--r);padding:1.5rem}
+/* inner pages */
+.page-head{padding:1.6rem 0 .4rem}
+.crumbs{font-size:.9rem;color:var(--muted);margin-bottom:.6rem}.crumbs i{font-style:normal;margin-inline:.3rem}
+.list{display:grid;gap:1rem;margin-bottom:3rem;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));align-items:start}
+.poem-link.wide{min-height:100%}
+.poem-card{padding:1rem 1.2rem}
+.prose{margin-bottom:3rem}.prose h2{margin-top:1.6rem;color:var(--brand)}.prose li{margin-bottom:.3rem}
+.about-grid{display:grid;grid-template-columns:240px 1fr;gap:2rem;align-items:start}
+.about-grid .portrait{width:220px;height:220px}
+/* poems */
+.poem-page{width:min(820px,100% - 2rem);margin-bottom:3rem}
+.poem-head{text-align:center;margin:1rem 0 1.4rem}
+.poem-head h1{margin:.4rem 0}
+.poem-body{margin:1rem auto;text-align:center}
+.verse{display:grid;grid-template-columns:1fr 1fr;gap:0 2.5rem;max-width:44rem;margin:0 auto;padding:.5rem 0}
+.verse p{margin:0;font:400 1.45rem/2 "Amiri","Noto Naskh Arabic",serif}
+.verse.triple p:nth-child(3){grid-column:1/-1}
+.verse.stack{grid-template-columns:1fr}
+.orn{color:var(--accent);opacity:.55;font-size:.8rem;margin:.1rem 0}
+.poem-card .poem-body{margin:.6rem 0 .2rem}
+.poem-card .verse{gap:0 1.2rem}.poem-card .verse p{font-size:1.3rem}
+.note{background:var(--soft);border-inline-start:4px solid var(--accent);border-radius:10px;padding:.7rem 1rem;margin:1rem auto;max-width:44rem}
+.note p{margin:.2rem 0 0}
+.pn-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+.pn{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:.8rem 1rem;color:var(--ink);font-family:"Amiri",serif;font-size:1.1rem}
+.pn small{display:block;color:var(--muted);font:400 .85rem "Tajawal",sans-serif}
+.pn.next{grid-column:2;text-align:start}.pn.prev{grid-column:1}
+.more-list ul{padding-inline-start:1.2rem}
+/* footer */
+.site-footer{background:var(--soft);border-top:1px solid var(--line);margin-top:3rem;padding:2rem 0 1rem;font-size:.95rem}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.5rem}
+.foot-grid h2{font-size:1.1rem;margin-bottom:.4rem}.foot-grid ul{list-style:none;margin:0;padding:0}.foot-grid li{margin:.15rem 0}
+.foot-brand{font:700 1.4rem "Amiri",serif;color:var(--brand)}
+.copy{text-align:center;color:var(--muted);margin:1.5rem 0 0;padding-bottom:env(safe-area-inset-bottom,0)}
+@media (max-width:720px){
+ body{font-size:16.5px}
+ .hero-grid{grid-template-columns:1fr;text-align:center;justify-items:center}
+ .stats{justify-content:center}.lead{margin-inline:auto}
+ .portrait{width:170px;height:170px}
+ .verse{grid-template-columns:1fr;gap:0}.verse p{font-size:1.35rem;line-height:1.95}
+ .verse.triple p:nth-child(3){grid-column:auto}
+ .list{grid-template-columns:1fr}
+ .about-grid{grid-template-columns:1fr;justify-items:center}
+ .foot-grid{grid-template-columns:1fr}
+ .pn-row{grid-template-columns:1fr}.pn.next,.pn.prev{grid-column:auto}
+ .site-header nav a{padding:.3rem .6rem}
 }
-
-.source-gallery{display:grid;gap:24px}.source-page{background:#fffdf9;border:1px solid #e5ded4;border-radius:18px;padding:12px;box-shadow:0 8px 24px rgba(40,30,20,.05)}.source-page img{display:block;width:100%;height:auto;border-radius:12px}.source-label{font-size:.82rem;color:#6f6a61;text-align:center;margin:8px 0 0}.poem-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}.poem-meta div{background:#fbf7f1;border:1px solid #e5ded4;border-radius:12px;padding:14px}.poem-meta b{display:block;color:#9d3f31;font-size:.8rem;margin-bottom:4px}@media(max-width:800px){.poem-meta{grid-template-columns:1fr}}
+@media print{.site-header,.site-footer,.pn-row,.more-list,.btn{display:none}body{background:#fff;color:#000}}
